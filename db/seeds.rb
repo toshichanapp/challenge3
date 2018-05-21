@@ -13,7 +13,7 @@ CSV.foreach('db/house_data.csv', headers: true) do |row|
   has_child = row['has_child'] == 'Yes'
   House.create(firstname: row['Firstname'],
                lastname: row['Lastname'],
-               city: row['city'],
+               city: row['City'],
                num_of_people: row['num_of_people'],
                has_child: has_child
               )

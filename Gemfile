@@ -13,6 +13,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 
+gem 'c3-rails'
+gem 'd3-rails', '~> 3.5.17'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'

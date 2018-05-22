@@ -1,0 +1,23 @@
+p
+  = @population.to_a
+p
+  = @has_child.to_a
+
+#population
+
+
+javascript:
+    const hoge = #{raw @population.to_a};
+    var chart = c3.generate({
+        bindto: '#population',
+        data: {
+            columns: hoge,
+            type: 'bar'
+        },
+        bar: {
+            width: {
+                ratio: 0.5
+            }
+            
+        }
+    });

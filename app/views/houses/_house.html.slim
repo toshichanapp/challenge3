@@ -4,7 +4,7 @@ tr
   td
     = house.lastname
   td
-    = house.city.name
+    = link_to house.city.name, city_path(house.city)
   td
     = house.num_of_people
   td

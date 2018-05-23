@@ -7,9 +7,9 @@ class HousesController < ApplicationController
       @population[city.name] = city.houses.pluck(:num_of_people).reduce(&:+)
     end
 
-    houses = House.all
+    @houses = House.all
     @has_child = {}
-    @has_child['has'] = houses.where(has_child: true).length
-    @has_child['none'] = houses.where(has_child: false).length
+    @has_child['has'] = @houses.where(has_child: true).length
+    @has_child['none'] = @houses.where(has_child: false).length
   end
 end

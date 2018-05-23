@@ -1,6 +1,23 @@
 #population
 
 #child
+table
+  thead
+    tr
+      th
+        | Firstname
+      th
+        | Lastname
+      th
+        | City
+      th
+        | Num of people
+      th
+        | Has child
+      th
+
+  tbody
+    = render @houses
 
 javascript:
     const hoge = #{raw @population.to_a};

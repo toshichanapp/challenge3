@@ -1,0 +1,16 @@
+tr
+  td
+    = house.firstname
+  td
+    = house.lastname
+  td
+    = house.city.name
+  td
+    = house.num_of_people
+  td
+    - if house.has_child?
+      | YES
+    - else
+      | NO
+  td
+    = link_to 'Show', house_path(house)

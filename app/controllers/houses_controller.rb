@@ -12,4 +12,18 @@ class HousesController < ApplicationController
     @has_child['has'] = @houses.where(has_child: true).length
     @has_child['none'] = @houses.where(has_child: false).length
   end
+
+  def show
+    @house = House.find(params[:id])
+    @datasets = @house.datasets
+    @x = ['x']
+    @column = ['enegy_production']
+    @daylight = ['daylight']
+
+    @datasets.each do |data|
+      @x << "#{data.year}-#{sprintf('%02d', data.month)}-00"
+      @column << data.energy_production
+      @daylight << data.daylight
+    end
+  end
 end

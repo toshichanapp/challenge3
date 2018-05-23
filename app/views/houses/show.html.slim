@@ -1,0 +1,39 @@
+#barChart
+
+table
+  thead
+    tr
+      th
+        | Year
+      th
+        | Month
+      th
+        | Temperature
+      th
+        | Daylight
+      th
+        | EnergyProduction
+      th
+
+  tbody
+    = render @datasets
+
+javascript:
+    const x = #{raw @x};
+    const datas= #{raw @column};
+    const daylight = #{raw @daylight};
+    const chart = c3.generate({
+        bindto: '#barChart',
+        data: {
+            x: 'x',
+            columns: [x, datas, daylight]
+        },
+        axis: {
+            x: {
+                type: 'timeseries',
+                tick: {
+                    format: '%Y-%m'
+                }
+            }
+        }
+    });

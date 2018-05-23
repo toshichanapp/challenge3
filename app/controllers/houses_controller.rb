@@ -1,14 +1,13 @@
 class HousesController < ApplicationController
   
   def index
-    houses = House.all
-
-    cities = houses.pluck(:city).uniq
+    cities = City.all
     @population = {}
     cities.each do |city|
-      @population[city] = houses.where(city: city).pluck(:num_of_people).reduce(&:+)
+      @population[city.name] = city.houses.pluck(:num_of_people).reduce(&:+)
     end
 
+    houses = House.all
     @has_child = {}
     @has_child['has'] = houses.where(has_child: true).length
     @has_child['none'] = houses.where(has_child: false).length
